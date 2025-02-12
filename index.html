@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<title>LEADERBOARD</title>
+  <head>
+    <title>LEADERBOARD</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
 
-        th,
-        td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: left;
-        }
+      .list-header,
+      .list-row {
+        display: flex;
+        padding: 10px;
+        font-weight: bold;
+      }
+
+      .list-row {
+        background: white;
+      }
+
+      .list-header div,
+      .list-row div {
+        flex: 1;
+        padding: 10px;
+        text-align: left;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-	<h1>LEADERBOARD</h1>
-	
+  <body>
+    <h1>LEADERBOARD</h1>
+
     <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
-        <div>
-            <label>First Name</label>
-            <input type="text" name="firstName" id="firstName" required>
-        </div>
-        <div>
-            <label>Last Name</label>
-            <input type="text" name="lastName" id="lastName" required>
-        </div>
-        <div>
-            <label>Country</label>
-            <input type="text" name="country" id="country" required>
-        </div>
-        <div>
-            <label>Score</label>
-            <input type="number" name="score" id="score" required>
-        </div>
-        <div class="form-action-buttons">
-            <input type="submit" value="Add Player" value="Update Player">
-        </div>
+      <div>
+        <label>First Name</label>
+        <input type="text" name="firstName" id="firstName" required />
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input type="text" name="lastName" id="lastName" required />
+      </div>
+      <div>
+        <label>Country</label>
+        <input type="text" name="country" id="country" required />
+      </div>
+      <div>
+        <label>Score</label>
+        <input type="number" name="score" id="score" required />
+      </div>
+      <div class="form-action-buttons">
+        <input type="submit" value="Add Player" />
+      </div>
     </form>
 
-    <table class="list" id="playerList">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Country</th>
-                <th>Score</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-	<script src="./data/countries_data.js"></script>
-	<script src="./scripts/main.js"></script>
+    <div class="list" id="playerList">
+      <div class="list-header">
+        <div class="list-item"><strong>First Name</strong></div>
+        <div class="list-item"><strong>Last Name</strong></div>
+        <div class="list-item"><strong>Country</strong></div>
+        <div class="list-item"><strong>Score</strong></div>
+        <div class="list-item"><strong>Action</strong></div>
+      </div>
+      <div class="list-body"></div>
+    </div>
 
-</body>
-
+    <script src="./data/countries_data.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
 </html>
