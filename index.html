@@ -26,6 +26,33 @@
         padding: 10px;
         text-align: left;
       }
+
+      .dropdown-container {
+            position: center;
+            width: 50%;
+        }
+        .dropdown-input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .dropdown-list {
+            position: absolute;
+            width: 100%;
+            border: 1px solid #ccc;
+            background: white;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+        }
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .dropdown-item:hover {
+            background: #f0f0f0;
+        }
+
     </style>
   </head>
 
@@ -41,10 +68,11 @@
         <label>Last Name</label>
         <input type="text" name="lastName" id="lastName" required />
       </div>
-      <div>
+      <div class="dropdown-container">
         <label>Country</label>
-        <input type="text" name="country" id="country" required />
-      </div>
+        <input type="text" id="countryInput" class="dropdown-input" placeholder="Search country" onkeyup="filterCountries()" required />
+        <div id="dropdownList" class="dropdown-list"></div>
+    </div>
       <div>
         <label>Score</label>
         <input type="number" name="score" id="score" required />
@@ -64,7 +92,6 @@
       </div>
       <div class="list-body"></div>
     </div>
-
     <script src="./data/countries_data.js"></script>
     <script src="./scripts/main.js"></script>
   </body>
